@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@media(min-width:0px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+    }
+    .nav {
+        position: fixed;
+        z-index: 5;
+        right: -10em;
+        top: 0;
+        display: flex;
+    }
+    .navbar {
+        height: 100vh;
+        width: 10em;
+        background-color: rgb(83, 25, 160);
+    }
+    .navbar p {
+        text-align: center;
+        color: white;
+        font-size: 1.2rem;
+        bottom: 0;
+        position: fixed;
+        margin-bottom: .5em;
+        align-content: center;
+        padding: 1em;
+    }
+    .button-list {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4em;
+    }
+    .navbar input[class=home-btn] {
+        background: url('../images/home.png') no-repeat;
+    }
+    .navbar input[class=register-btn] {
+        background: url('../images/register.png') no-repeat;
+    }
+    .navbar input[class=reviews-btn] {
+        background: url('../images/reviews.png') no-repeat;
+    }
+    .navbar input[class=contact-btn] {
+        background: url('../images/contact.png') no-repeat;
+    }
+    .navbar input[type=submit] {
+        background-color: rgb(83, 25, 160);
+        width: 10em;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 1em 2.5em 1em 2.5em;
+        margin-bottom: 1em;
+        background-position: 50% 50%;
+        background-size: 2em 2em;
+    }
+    .navbar input[type=submit]:hover {
+        background-color: rgb(60, 7, 131);
+    }
+    .author-name {
+        font-weight: bold;
+    }
+    header {
+        padding-top: 1em;
+        padding-bottom: 3em;
+        text-align: left;
+        padding-left: 1em;
+    }
+    input[class=show-nav-btn] {
+        width: 4em;
+        height: 3em;
+        margin-top: 1em;
+        border: none;
+        padding: .3em;
+        border-radius: 1em 0 0 1em;
+        cursor: pointer;
+        background: rgb(83, 25, 160) url('../images/menu.png') no-repeat;
+        background-position: center;
+    }
+    input[class=show-nav-btn]:hover {
+        background-color: rgb(60, 7, 131);
+    }
+    .hero-bg {
+        background: url('../images/landscape2.jpg') no-repeat;
+        background-size: 100vw 18em;
+        border-radius: 0 0 60% 60%;
+    }
+    .hero-bg a {
+        color: rgb(83, 25, 160);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        font-weight: bold;
+        font-size: 2rem;
+        color: rgb(83, 25, 160);
+        text-align: center;
+    }
+    .rating-img {
+        width: 3.5em;
+        height: 3.5em;
+        margin-bottom: 3em;
+    }
+    .reviews {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .content {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .review {
+        background: rgb(245, 241, 241);
+        margin: 2em;
+        padding: 1em;
+        width: 100%;
+        box-shadow: 10px 10px 10px lightgray;
+    }
+    .reviewer {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+    }
+    .reviewer-photo {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+    }
+    h3 {
+        font-size: 1rem;
+        margin-left: 1em;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .loading-spinner {
+        width: 5em;
+        height: 5em;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+    }
+    .scroll-btn {
+        display: none;
+        position: fixed;
+        bottom: 1em;
+        left: .25em;
+        z-index: 3;
+        border: none;
+        outline: none;
+        background: rgb(83, 25, 160) url('../images/scroll-up.png') no-repeat;
+        background-size: 2em 2em;
+        background-position: center;
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .scroll-btn:hover {
+        background-color: rgb(60, 7, 131);
+    }
+    .footer p {
+        opacity: 0;
+        display: none;
+    }
+    .navbar-overlay {
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, .9);
+        z-index: 4;
+        position: fixed;
+        display: none;
+        opacity: 0;
+    }
+    /*Animations- mobile*/
+    .animation-showNavBar {
+        animation: showNavBar .2s forwards;
+    }
+    .animation-hideNavBar {
+        animation: hideNavBar .2s forwards;
+    }
+    .animation-showNavBarOverlay {
+        animation: appear .5s forwards;
+    }
+    .animation-hideNavBarOverlay {
+        animation: disappear .5s forwards;
+    }
+}
+
+@media(min-width:930px) {
+    .footer p {
+        opacity: 1;
+        display: contents;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 20em;
+    }
+    input[class=show-nav-btn] {
+        opacity: 0;
+        display: none;
+    }
+    .nav {
+        right: 0;
+        position: static;
+        z-index: 0;
+    }
+    .navbar p {
+        opacity: 0;
+        display: none;
+    }
+    .navbar {
+        width: 0em;
+        height: 4em;
+        z-index: 1;
+    }
+    .button-list {
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-right: 3em;
+        margin-top: 0;
+    }
+    .hero-bg {
+        background-position: 0 80%;
+        background-size: 100vw 20em;
+    }
+    .hero-bg a {
+        color: white;
+        margin-top: .5em;
+        z-index: 1;
+    }
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgb(83, 25, 160);
+        padding-bottom: 0;
+        margin-left: 0;
+        padding-left: 1em;
+        margin-bottom: 5em;
+        padding-top: 0;
+    }
+    .navbar input[type=submit] {
+        margin-bottom: 0;
+        height: 4em;
+        padding: 0 5em 0 5em;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    .review {
+        width: 80%;
+    }
+    .scroll-btn {
+        bottom: 1em;
+        left: 1em;
+        width: 3em;
+        height: 3em;
+    }
+}
+
+@media(min-width:1300px) {
+    .button-list {
+        margin-right: 5em;
+    }
+    .review {
+        width: 60%;
+    }
+    .footer {
+        margin-top: 10em;
+    }
+    .hero-bg {
+        background-position: 0 90%;
+    }
+    .scroll-btn {
+        bottom: 2em;
+        left: 2em;
+        width: 3.5em;
+        height: 3.5em;
+    }
+}
+
+
+/*Animations- all devices*/
+
+.top {
+    animation: fadeIn 2s forwards;
+}
+
+.reviews {
+    animation: fadeIn 2s forwards;
+}
+
+.footer {
+    animation: fadeIn 2s forwards;
+}
+
+.animation-loadReviews {
+    animation: appear 2s forwards;
+}
+
+.animation-showScrollBtn {
+    animation: appear .5s forwards;
+}
+
+.animation-hideScrollBtn {
+    animation: disappear .5s forwards;
+}
+
+
+/*Animations- definition*/
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showNavBar {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-10em);
+    }
+}
+
+@keyframes hideNavBar {
+    from {
+        transform: translateX(-10em);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

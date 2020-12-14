@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b31f7232-3808-4dd7-bb7b-867599074284" name="StudentHosting" url="http://ftp.4ideaspace.studenthosting.sk">
+        <fileTransfer host="ftp.4ideaspace.studenthosting.sk" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
