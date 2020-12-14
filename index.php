@@ -35,36 +35,37 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 </head>
 
 <body>
-    <script src="js/JS.js"></script>
-    <header>
-        <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
-        <h2 class="uvod">Internetove technologie</h2>
-    </header>
-        <div>
-            <ul>
-                <li class="selected"><a href="index.php" class="active"><i class="fa fa-home fa-fw"></i></a></li>
-                <li><a href="vloz.php">VKLADANIE</a></li>
-                <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-                <li><a href="contact.php">KONTAKT</a></li>
-                <!-- <li><a href="povedali.php">POVEDALI O PROJEKTE</a></li> -->
-                <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
-            </ul>
-        </div>
-    <!-- Reklama na uvod -->
-        <div>
-            <h4 style="text-align:center">Webstranka je pohanana</h4>
-            <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
-        </div>
-        <div>
-            <h1 style="font-size:10vw; text-align:center;">Vitajte!</h1>
-            <div class="center">
-                <button class="reg" onclick="window.location.href='prihlas_sa.php'">Prihlas sa</button>
-                <p>&nbsp;</p>
-                <button class="reg" onclick="window.location.href='registracia.php'">Registruj sa</button>
-            </div>
-                <p>Toto je moje semestralne zadania</p>
-        </div>
-        <div id="txt"></div>
+<script src="js/JS.js"></script>
+<header>
+    <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
+    <h2 class="uvod">Internetove technologie</h2>
+</header>
+<div>
+    <ul>
+        <li class="selected"><a href="index.php" class="active"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="vloz.php">VKLADANIE</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
+        <li><a href="edituj.php">EDITUJ</a></li>
+        <li><a href="contact.php">KONTAKT</a></li>
+        <!-- <li><a href="povedali.php">POVEDALI O PROJEKTE</a></li> -->
+        <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
+    </ul>
+</div>
+<!-- Reklama na uvod -->
+<div>
+    <h4 style="text-align:center">Webstranka je pohanana</h4>
+    <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
+</div>
+<div>
+    <h1 style="font-size:10vw; text-align:center;">Vitajte!</h1>
+    <div class="center">
+        <button class="reg" onclick="window.location.href='prihlas_sa.php'">Prihlas sa</button>
+        <p>&nbsp;</p>
+        <button class="reg" onclick="window.location.href='registracia.php'">Registruj sa</button>
+    </div>
+    <p>Toto je moje semestralne zadania</p>
+</div>
+<div id="txt"></div>
 
     <footer>
 

@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
-    <title>Vloz udaje:</title>
+    <title>Vloz udaje</title>
     <meta name="author" content="Samuel Domin"
     <meta name="keyword" content="HTML, CSS, JavaScript, PHP">
     <meta name="description" content="Semestralny projekt INTE">
@@ -76,6 +76,7 @@ else
 </script>
 
 <!-- Formular -->
+
 <h2>Vloz hodnotu:</h2>
 <div ng-app="myApp" ng-controller="myCtrl">
 <form action="vloz.php" method="post" autocomplete="on">

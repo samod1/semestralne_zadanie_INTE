@@ -40,71 +40,55 @@
 </div>
 
 
-
-
-
 <h2>Citaj vlozene hodnoty</h2>
 <?php
-/*
-//Connect do DB
-$db_server="edudb-02.nameserver.sk";
-$db_user="samod150";
-$db_pass="Hesloheslo123";
-$db_name="4ideaspace_stude";
-$db_port="3307";
-*/
-include "config.php";
-//$conn=mysqli_connect($db_server, $db_user, $db_pass, $db_name, $db_port);
-/*
-if(!$conn)
-{
-    echo "Neuspesne pripojenie".PHP_EOL;
-    exit;
-}
-else
-{
-    echo "Konektivita s DB nadviazana";
-}
-*/
-if ($_GET["zmazat"]=="ano" && $_GET["id"]!="") // && AND boolean operator = a zaroven plati
-    // || booleans OR - alebo = plati podmienka cislo1 alebo cislo2, jedna alebo druha
-{
-    //$query = "DELETE FROM ucitel WHERE id=".$_GET["id"];  //delete command SQL kde id = odoslany parameter
-    //$result = mysqli_query($link, $query); // mysqli_query - vykona prikaz
 
-    /* to iste ale bezpecnejsie napisane */
-    $id=$_GET["id"]; // do premennej $meno = $_POST["meno"];
-    $query = "DELETE FROM Student WHERE id=?"; // toto je SQL prikaz pre vlozenie riadku do DB do dvoch stlpcov id a meno vkladam ?,?
-    $stmt = mysqli_stmt_init($conn); //pripravim miesto pre prikaz DB
-    mysqli_stmt_prepare($stmt, $query); //do pamate pripravenej zadam SQL prikaz nekompletny lebo parametre
-    mysqli_stmt_bind_param($stmt, "i", $id); // pripnem parametre na znaky otazniku. ? bude nahradeny premennou
-    mysqli_stmt_execute($stmt); // samotne vykonanie prikazu v DB
+include "config.php";
+
+//EDIT
+if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "") {
+    $meno = $_POST["meno"];
+    $id = $_POST["id"];
+    $query = "UPDATE Student set meno=? WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_bind_param($stmt, "si", $meno, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+// DELETE
+if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
+    $id = $_GET["id"];
+    $query = "DELETE FROM Student WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, $query);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 }
 
 
-
-//citanie
+//READING
 $query = "SELECT id, meno, priezvisko, fakulta FROM Student ORDER BY id ASC";  //uspodiadaj ASC od najmensieho po najvacsi
 $result = mysqli_query($conn, $query); // mysqli_query - vykona prikaz
-if (!$result)
-{
+if (!$result) {
     // ! $result zneguje false vyroby z neho true - ak sa db nepodarilo vykonat prikaz
-    echo "Error: Neda sa vykonat prikazSQL: ".$query.".<br>".PHP_EOL; // PHP_EOL je konstanta na koniec riadku
+    echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL; // PHP_EOL je konstanta na koniec riadku
     exit;   // exit - ukonci vykonavanie PHP programu
 }
 
 while ($row = mysqli_fetch_assoc($result))  // pokial budu existovat riadky v DB tak sa bude opakovat akcia medzi zatvrokami
 {
-    echo "<b>Meno:</b> ".$row["meno"].  "&nbsp; <b>Priezvisko:</b> " .$row["priezvisko"]."&nbsp; <b>Fakulta: </b>" .$row["fakulta"];
-    ?>
-    <a id="odstranit" href="citaj.php?id=<?php echo $row["id"];?>&zmazat=ano">Zmazat</a><br>
-    <!--<a href="edituj.php?id=<?php echo $row["id"];?>&edituj=ano">Edituj</a><br>-->
+    echo "<b>Meno:</b> " . $row["meno"] . "&nbsp; <b>Priezvisko:</b> " . $row["priezvisko"] . " &nbsp; <b>Fakulta: </b>" . $row["fakulta"]; ?>
+    <a id="odstranit" href="citaj.php?id=<?php echo $row["id"]; ?>&zmazat=ano">Zmazat</a>
+    <a href="edituj.php?id=<?php echo $row["id"]; ?>&edituj=ano">Edituj</a><br>
     <?php
 }
+
+
 ?>
 </body>
 </html>
 
 <?php
+mysqli_close($conn);
 ?>

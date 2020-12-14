@@ -152,7 +152,7 @@ input[type=submit]:hover
 {
     background-color: #33cc33; /* Green */
     border: none;
-    color: white;
+    color: #ffffff;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -183,8 +183,8 @@ input[type=select]
     text-color: #ff0000;
 }
 
-a #odstranit{
-    background-color: #ff0000; /* Green */
+a #odstranit {
+    color: #000000;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -194,22 +194,33 @@ a #odstranit{
     font-size: 16px;
 }
 
-div.footer{
+a #odstranit.hover {
+    color: red;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+div.footer {
 
     display: block;
-    background-color:#333333;
+    background-color: #333333;
 
 
 }
-p.footer
-{
+
+p.footer {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     text-align: center;
     padding: 14px 16px;
 }
 
-button.reg{
+button.reg {
 
     background-color: #4CAF50; /* Green */
     border: none;
