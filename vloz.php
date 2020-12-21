@@ -20,9 +20,11 @@
     <meta name="theme-color" content="#ffffff">
 
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
+
 <header>
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
@@ -44,6 +46,7 @@
 </div>
 <!-- DB connect  -->
 <?php
+$conn = "";
 /*
 //Connect do DB
 $db_server="edudb-02.nameserver.sk";
@@ -79,26 +82,30 @@ else
 
 <h2>Vloz hodnotu:</h2>
 <div ng-app="myApp" ng-controller="myCtrl">
-<form action="vloz.php" method="post" autocomplete="on">
-    <label for="meno">Meno:</label> <input id="fname" ng-model="firstname" type="text" name="meno" required autofocus placeholder="Samuel"><br>
-    <label for="priezvisko">Priezvisko:</label> <input id="lname" ng-model="lastname" type="text" name="priezvisko" required autofocus placeholder="Domin"><br><br>
-    <label for="fakulta">Zvol si fakultu</label>
+    <form action="vloz.php" method="post" autocomplete="on">
+        <label for="meno">Meno:</label> <input id="meno" ng-model="firstname" type="text" name="meno" required autofocus
+                                               placeholder="Samuel"><br>
+        <label for="priezvisko">Priezvisko:</label> <input id="priezvisko" ng-model="lastname" type="text"
+                                                           name="priezvisko" required autofocus placeholder="Domin"><br><br>
+        <label for="fakulta">Zvol si fakultu</label>
 
-    <select ng-model="faculty" name="fakulta">
-        <option label="MTF">Materialovo technologicka fakulta</option>
-        <option label="FCHPT">Fakulta chcemicko potravinarskej technologie</option>
-        <option label="FIIT">Fakulta informatiky a informacnych technologii</option>
-        <option label="FEI">Fakulta elektrotechniky</option>
-        <option label="SjF">Strojnicka fakulta</option>
-        <option label="SvF">Stavebna fakulta</option>
-    </select><br>
+        <select id="fakulta" ng-model="faculty" name="fakulta">
+            <option label="MTF">Materialovo technologicka fakulta</option>
+            <option label="FCHPT">Fakulta chcemicko potravinarskej technologie</option>
+            <option label="FIIT">Fakulta informatiky a informacnych technologii</option>
+            <option label="FEI">Fakulta elektrotechniky</option>
+            <option label="SjF">Strojnicka fakulta</option>
+            <option label="SvF">Stavebna fakulta</option>
+        </select><br>
 
-    <div class="g-recaptcha" data-sitekey="6Lc1Ov0ZAAAAAIa37gGbzbyvsuJORUR8U59d-6Hv"></div>
-    <input type="submit" value="Vlozit"></br>
-    <input type="hidden" name="vlozit" value="ano">
+        <div class="g-recaptcha" data-sitekey="6Lc1Ov0ZAAAAAIa37gGbzbyvsuJORUR8U59d-6Hv"></div>
+        <input type="submit" value="Vlozit"><br>
+        <input type="hidden" name="vlozit" value="ano">
 
-</form>
-    <p><strong>Vkladas udaje:</strong> {{firstname}} {{lastname}} {{faculty}}<p>
+    </form>
+    <!-- <p><strong>Vkladas udaje:</strong> {{firstname}} {{lastname}} {{faculty}}<p> -->
+    <p><strong>INSERT INTO student (id,meno,priezvisko,fakulta)
+            VALUES </strong>({{firstname}},{{lastname}},{{faculty}});</p>
 </div>
 
 <?php

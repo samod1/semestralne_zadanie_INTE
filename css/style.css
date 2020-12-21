@@ -183,22 +183,17 @@ input[type=select]
     text-color: #ff0000;
 }
 
-a #odstranit {
-    color: #000000;
+a#odstranit {
+    color: rgb(84, 84, 84);
     border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
 }
 
-a #odstranit.hover {
-    color: red;
+a#odstranit:hover {
+    color: #ff0000;
     border: none;
-    color: black;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -259,3 +254,26 @@ div.center {
     height: 200px;
 }
 
+
+a#edituj:hover {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a#edituj {
+    color: rgb(84, 84, 84);
+    font-size: 16px;
+}
+
+a#objednajObed {
+    color: black;
+
+}
+
+a#objednajObed:hover {
+    color: green;
+}
+
+a#objednajObed:visited {
+    color: black;
+}

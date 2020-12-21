@@ -42,19 +42,9 @@
 
 <h2>Citaj vlozene hodnoty</h2>
 <?php
-
+$conn = "";
 include "config.php";
 
-//EDIT
-if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "") {
-    $meno = $_POST["meno"];
-    $id = $_POST["id"];
-    $query = "UPDATE Student set meno=? WHERE id=?";
-    $stmt = mysqli_stmt_init($conn);
-    mysqli_stmt_bind_param($stmt, "si", $meno, $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-}
 // DELETE
 if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
     $id = $_GET["id"];
@@ -68,7 +58,7 @@ if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
 
 
 //READING
-$query = "SELECT id, meno, priezvisko, fakulta FROM Student ORDER BY id ASC";  //uspodiadaj ASC od najmensieho po najvacsi
+$query = "SELECT Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
 $result = mysqli_query($conn, $query); // mysqli_query - vykona prikaz
 if (!$result) {
     // ! $result zneguje false vyroby z neho true - ak sa db nepodarilo vykonat prikaz
@@ -78,13 +68,33 @@ if (!$result) {
 
 while ($row = mysqli_fetch_assoc($result))  // pokial budu existovat riadky v DB tak sa bude opakovat akcia medzi zatvrokami
 {
-    echo "<b>Meno:</b> " . $row["meno"] . "&nbsp; <b>Priezvisko:</b> " . $row["priezvisko"] . " &nbsp; <b>Fakulta: </b>" . $row["fakulta"]; ?>
-    <a id="odstranit" href="citaj.php?id=<?php echo $row["id"]; ?>&zmazat=ano">Zmazat</a>
-    <a href="edituj.php?id=<?php echo $row["id"]; ?>&edituj=ano">Edituj</a><br>
+    echo "<b>Meno:</b> " . $row["meno"] . "&nbsp; <b>Priezvisko:</b> " . $row["priezvisko"] . " &nbsp; <b>Zvoleny obed: </b>" . $row["nazov"]; ?>
+    <a id="odstranit" href="citaj.php?id=<?php echo $row["id"]; ?>&zmazat=ano"><b>Zmazat</b></a>
+    <a id="edituj" href="edituj.php?id=<?php echo $row["id"]; ?>&edituj=ano"><b>Edituj</b></a>
+    <a id="objednajObed" href="objednaj.php?id=<?php echo $row["id"]; ?>&objednaj=ano"><b>Objednaj si obed</b></a><br>
+
     <?php
 }
+if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $_POST["priezvisko"] != "") {
+    $meno = $_POST["meno"];
+    $id = $_POST["id"];
+    $priezvisko = $_POST["priezvisko"];
+
+    /*
+    $query = "UPDATE ucitel SET meno='$meno' WHERE id=$id";  //idem updatovat konkretny zaznam
+    echo "Vykonavany SQL prikaz je:".$query."<br><br>";
+    $result = mysqli_query($link, $query); // mysqli_query - vykona prikaz
+    */
 
 
+    $query = "UPDATE Student SET meno= ?, priezvisko= ? WHERE id=?";
+    $stmt = mysqli_stmt_init($conn);
+    mysqli_stmt_prepare($stmt, $query);
+    mysqli_stmt_bind_param($stmt, "ssi", $meno, $priezvisko, $id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+}
 ?>
 </body>
 </html>
