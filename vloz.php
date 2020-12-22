@@ -1,3 +1,12 @@
+<?php
+
+$session = session_start();
+$cookie_name = "user";
+$cookie_value = "Pouzivas moj projekt";
+setcookie($cookie_name, $cookie_value, time() + (86400), "/");
+?>
+
+
 <!DOCTYPE HTML>
 <html lang="sk-SK">
 <head>
@@ -10,8 +19,7 @@
     <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+    <!-- Ikonky -->
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
@@ -23,8 +31,8 @@
 
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
 
+<body>
 <header>
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
@@ -34,7 +42,7 @@
     <li><a class="active" href="vloz.php">VKLADANIE</a></li>
     <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
     <li><a href="contact.php">KONTAKT</a></li>
-<!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
+    <!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
     <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
 
 
@@ -44,34 +52,16 @@
     <h4 style="text-align:center">Webstranka je pohanana</h4>
     <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
 </div>
+
 <!-- DB connect  -->
 <?php
 $conn = "";
-/*
-//Connect do DB
-$db_server="edudb-02.nameserver.sk";
-$db_user="samod150";
-$db_pass="Hesloheslo123";
-$db_name="4ideaspace_stude";
-$db_port="3307";
-*/
 include "config.php";
-//$conn=mysqli_connect($db_server, $db_user, $db_pass, $db_name, $db_port);
-
-/*if(!$conn)
-{
-    echo "Neuspesne pripojenie".PHP_EOL;
-    exit;
-}
-else
-{
-    echo "Konektivita s DB nadviazana";
-}
-*/
 ?>
+
 <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
+    let app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
         $scope.firstname = "";
         $scope.lastname = "";
         $scope.faculty = "Materialovo technologicka fakulta";
@@ -110,12 +100,11 @@ else
 
 <?php
 //vkladanie udajov do DB
-if ($_POST["vlozit"]=="ano")
-{
+if ($_POST["vlozit"] == "ano") {
     // Ak v html formulari je vlozit a je naplnene hodnotou ano idem vlozit data do DB
     $meno = $_POST["meno"]; // do premennej $meno = $_POST["meno"];
     $priezvisko = $_POST["priezvisko"];
-    $fakulta =$_POST["fakulta"];
+    $fakulta = $_POST["fakulta"];
     $id = 0;
 
     $query = "INSERT INTO Student (id,meno,priezvisko,fakulta) VALUES (?,?,?,?)";
@@ -135,7 +124,6 @@ if ($_POST["vlozit"]=="ano")
 //echo "<br> vitaj:", $_POST["meno"] ," ", $_POST["priezvisko"]," ",$_POST["fakulta"];
 mysqli_close($conn);
 ?>
-
 
 
 </body>

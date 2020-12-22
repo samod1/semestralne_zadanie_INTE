@@ -78,7 +78,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <input type="radio" value="<?php $row["nazov"]; ?>" name="obed">
-            <label><?php echo $row["nazov"]; ?></label>
+            <label><?php echo $row["nazov"]; ?></label><br>
 
             <?php
         }
@@ -86,7 +86,8 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
         //TODO Update
         // zajtra how to update predprirava by bola
         /* moje otazky
-            da sa spravit radio tak aby sa dala odkliknut len jedna jedina moznost?
+            Update
+
         */
         ?>
         <input type="submit" value="uloz">
