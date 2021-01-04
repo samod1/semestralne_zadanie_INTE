@@ -32,10 +32,11 @@
 </header>
 <ul>
     <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+    <li><a href="popis.php">POPIS PROJETKU</a></li>
     <li><a href="vloz.php">VKLADANIE</a></li>
-    <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-    <li><a href="contact.php">KONTAKT</a></li>
-    <!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
+    <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+    <li><a href="popis.php">INE PROJEKTY</a></li>
+    <li><a class="active" href="contact.php">KONTAKT</a></li>
     <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
 
 
@@ -49,75 +50,58 @@
 
 <?php
 $conn = "";
-
 if ($_GET["id"] != "" && $_GET["edituj"] == "ano") {
     include_once "config.php";
-    if (!$conn) {
-        echo "Error: Neda sa pripojit na MySQL DB server.<br>" . PHP_EOL;
-        exit;
-    } else {
-        echo "connectivity OK<br>";
-    }
-
-
     $query = "SELECT id, meno, priezvisko FROM Student WHERE id=" . $_GET["id"];
     $result = mysqli_query($conn, $query);
 
-    if (!$result) {
-        echo "ERR" . $query . PHP_EOL;
-        exit;
-    } else {
-        echo "ok";
-    }
 
     while ($row = mysqli_fetch_assoc($result)) {
-
-        echo "<br><b>Editujes prave zaznam</b>" . $row["meno"] . " " . $row["priezvisko"];
-        //echo "<br><b>meno:</b>" . $row["meno"] . "<br>";
+        echo "<br><b>Editujes prave zaznam</b>" . $row["id"] . " " . $row["meno"] . " " . $row["priezvisko"];
     }
     ?>
-    <script>
+    <!-- <script>
         const app = angular.module('myApp', []);
         app.controller('myCtrl', function ($scope) {
             $scope.firstName = "John";
             $scope.lastName = "Doe";
         });
-    </script>
+    </script> -->
 
     <h2>Edituj udaj</h2>
-    <div ng-app="myApp" ng-controller="myCtrl">
-        <form action="citaj.php" method="post" autocomplete="on">
-            <input name="id" type="hidden" value="<?php echo $row["id"]; ?>">
-            <label for="name">Meno</label><input id="name" type="text" ng-model="meno" name="meno"
-                                                 placeholder="<?php echo $row["meno"]; ?>">
-            <label for="lastname">Priezvisko</label><input id="lastname" type="text" ng-model="priezvisko"
-                                                           name="priezvisko"
-                                                           placeholder="<?php echo $row['priezvisko']; ?>">
-            <input type="submit" value="Uloz zmeny"><br>
-            <input type="hidden" name="uloz" value="ano">
-        </form>
-        <p><strong>UPDATE student <br> SET meno='</strong>{{meno}}<strong>', priezvisko='</strong>{{priezvisko}}<strong>'
-                <br>WHERE id=</strong> <?php echo $_GET["id"]; ?></p>
-    </div>
+    <form action="edituj.php" method="get" autocomplete="on">
+        <label for="idStud">ID:<?php echo $row["id"]; ?></label>
+        <label>
+            <input name="idStud" type="text" value="<?php echo $row["id"]; ?>">
+        </label>
+        <label for="name">Meno</label>
+        <input type="text" name="meno">
+        <label for="lastname">Priezvisko</label>
+        <input type="text" name="priezvisko">
+        <input type="submit" value="Uloz zmeny"><br>
+        <input type="hidden" name="uloz" value="ano">
+    </form>
+    <!--<p><strong>UPDATE student <br> SET meno='</strong>{{meno}}<strong>', priezvisko='</strong>{{priezvisko}}<strong>'
+                <br>WHERE id=</strong> <?php //echo $_GET["id"];
+    ?></p>-->
+
 
     <?php
 
     if ($_POST["uloz"] == "ano") {
-        echo "mal by sa vykonat SQL";
-        $id = $_POST["id"];
-        $meno = $_POST["meno"];
-        $priezvisko = $_POST["priezvisko"];
+        $id = $_GET["idStud"];
+        $meno = $_GET["meno"];
+        $priezvisko = $_GET["priezvisko"];
 
         //Vykonanie prikazu
-        $query = "UPDATE Student SET meno ='?',priezvisko='?' WHERE id=?";
+        $query_update = "UPDATE Student SET meno ='?',priezvisko='?' WHERE id=?";
         $stmt = mysqli_stmt_init($conn);
-        mysqli_stmt_prepare($query, $conn);
+        mysqli_stmt_prepare($query_update, $conn);
         mysqli_stmt_bind_param($stmt, 'ssi', $meno, $priezvisko, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        mysqli_close($conn);
     }
-
+    mysqli_close($conn);
 }
 ?>
 </body>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Studenthosting">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.19">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.20">
     <root id="1">
       <ServerVersion>10.4.12</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1021,7 +1021,7 @@
     </collation>
     <user id="326" parent="1" name="samod150">
       <Host>%</Host>
-      <ObjectGrants>ALL PRIVILEGES|4ideaspace\_stude:null
+      <ObjectGrants>ALL PRIVILEGES|4ideaspace\_stude
 </ObjectGrants>
     </user>
     <table id="327" parent="2" name="Clovek"/>
@@ -1139,7 +1139,6 @@
     <column id="352" parent="330" name="idObed">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <key id="353" parent="330" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

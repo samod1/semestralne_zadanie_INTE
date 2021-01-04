@@ -43,7 +43,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/");
     <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
     <li><a href="contact.php">KONTAKT</a></li>
     <!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
-    <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
+    <li><a href="https://github.com/samod1/semestralne_zadanie_INT3E.git">ZDROJOVE KODY</a></li>
 
 
 </ul>
@@ -72,6 +72,7 @@ include "config.php";
 
 <h2>Vloz hodnotu:</h2>
 <div ng-app="myApp" ng-controller="myCtrl">
+
     <form action="vloz.php" method="post" autocomplete="on">
         <label for="meno">Meno:</label> <input id="meno" ng-model="firstname" type="text" name="meno" required autofocus
                                                placeholder="Samuel"><br>
@@ -87,41 +88,34 @@ include "config.php";
             <option label="SjF">Strojnicka fakulta</option>
             <option label="SvF">Stavebna fakulta</option>
         </select><br>
-
-        <div class="g-recaptcha" data-sitekey="6Lc1Ov0ZAAAAAIa37gGbzbyvsuJORUR8U59d-6Hv"></div>
         <input type="submit" value="Vlozit"><br>
         <input type="hidden" name="vlozit" value="ano">
 
     </form>
     <!-- <p><strong>Vkladas udaje:</strong> {{firstname}} {{lastname}} {{faculty}}<p> -->
-    <p><strong>INSERT INTO student (id,meno,priezvisko,fakulta)
-            VALUES </strong>({{firstname}},{{lastname}},{{faculty}});</p>
+    <!--<p><strong>INSERT INTO student (id,meno,priezvisko,fakulta)
+            VALUES </strong>({{firstname}},{{lastname}},{{faculty}});</p>-->
 </div>
 
 <?php
 //vkladanie udajov do DB
 if ($_POST["vlozit"] == "ano") {
-    // Ak v html formulari je vlozit a je naplnene hodnotou ano idem vlozit data do DB
-    $meno = $_POST["meno"]; // do premennej $meno = $_POST["meno"];
+    $meno = $_POST["meno"];
     $priezvisko = $_POST["priezvisko"];
     $fakulta = $_POST["fakulta"];
     $id = 0;
 
     $query = "INSERT INTO Student (id,meno,priezvisko,fakulta) VALUES (?,?,?,?)";
-    // SQL prikaz na vkladanie hodnot do troch stlpcov
     $stmt = mysqli_stmt_init($conn);
-    //pripravim miesto pre prikaz DB
     mysqli_stmt_prepare($stmt, $query);
-    //do pamate pripravenej zadam SQL prikaz nekompletny lebo parametre
     mysqli_stmt_bind_param($stmt, 'isss', $id, $meno, $priezvisko, $fakulta);
-    //mysqli_stmt_bind_param($stmt, "is", $id, $meno);
-    // pripnem parametre na znaky otazniku. ? bude nahradeny premennou
-    mysqli_stmt_execute($stmt); // samotne vykonanie prikazu v DB
-    mysqli_stmt_close($stmt);  // a zrusenie pamatovej alokiacie a v pripade uspechu sa potvrdi zaznam v DB
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
 }
 
 
-//echo "<br> vitaj:", $_POST["meno"] ," ", $_POST["priezvisko"]," ",$_POST["fakulta"];
+echo "<br> vitaj:", $_POST["meno"], " ", $_POST["priezvisko"], " ", $_POST["fakulta"];
 mysqli_close($conn);
 ?>
 

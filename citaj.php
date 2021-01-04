@@ -24,11 +24,13 @@
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
 </header>
-<ul class="menu">
+<ul>
     <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+    <li><a href="popis.php">POPIS PROJETKU</a></li>
     <li><a href="vloz.php">VKLADANIE</a></li>
-    <li><a class="active" href="citaj.php">CITANIE/MAZANIE</a></li>
-    <li><a href="contact.php">KONTAKT</a></li>
+    <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+    <li><a href="popis.php">INE PROJEKTY</a></li>
+    <li><a class="active" href="contact.php">KONTAKT</a></li>
     <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
 
 
@@ -41,6 +43,13 @@
 
 
 <h2>Citaj vlozene hodnoty</h2>
+<!--<h5>Hladaj</h5>
+<form action="citaj.php" method="get" autocomplete="on">
+    <label for="priezvisko2">Priezvisko</label>
+    <input type="text" name="priezvisko2">
+    <input type="submit" value="Hladaj">
+    <input type="hidden" name="hladaj" value="ano">
+</form> -->
 <?php
 $conn = "";
 include "config.php";
@@ -58,7 +67,8 @@ if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
 
 
 //READING
-$query = "SELECT Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
+//$query = "SELECT Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
+$query = "SELECT Student.id ,Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
 $result = mysqli_query($conn, $query); // mysqli_query - vykona prikaz
 if (!$result) {
     // ! $result zneguje false vyroby z neho true - ak sa db nepodarilo vykonat prikaz
@@ -68,6 +78,7 @@ if (!$result) {
 
 while ($row = mysqli_fetch_assoc($result))  // pokial budu existovat riadky v DB tak sa bude opakovat akcia medzi zatvrokami
 {
+
     echo "<b>Meno:</b> " . $row["meno"] . "&nbsp; <b>Priezvisko:</b> " . $row["priezvisko"] . " &nbsp; <b>Zvoleny obed: </b>" . $row["nazov"]; ?>
     <a id="odstranit" href="citaj.php?id=<?php echo $row["id"]; ?>&zmazat=ano"><b>Zmazat</b></a>
     <a id="edituj" href="edituj.php?id=<?php echo $row["id"]; ?>&edituj=ano"><b>Edituj</b></a>
@@ -86,14 +97,46 @@ if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $
     $result = mysqli_query($link, $query); // mysqli_query - vykona prikaz
     */
 
+    //hladanie
+    /*
+        if ($_GET["hladaj"]=="ano")
+        {
+            $priezvisko=$_GET["priezvisko2"];
+            $query="SELECT id, meno,priezvisko,fakulta FROM Student WHERE priezvisko=".$priezvisko. "ORDER BY id ASC ";
+            $result=mysqli_query($query,$conn);
+            if (!$result)
+            {
+                echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
+                exit;
+            }
 
-    $query = "UPDATE Student SET meno= ?, priezvisko= ? WHERE id=?";
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                echo "Hladana osoba<br>";
+                echo $row["meno"]," ",$row["priezvisko"]," ",$row["fakulta"];
+            }
+        }
+        */
+    if ($_GET["ulozit"] == "ano") {
+        $id = $_GET["id"];
+        $obed = $_GET["obed"];
+
+        $query_upobed = "UPDATE Student SET idObed= ? WHERE id= ?";
+        $stmt = mysqli_stmt_init($conn);
+        mysqli_stmt_prepare($stmt, $query_upobed);
+        mysqli_stmt_bind_param($stmt, "ii", $obed, $id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+
+        /*
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $query);
-    mysqli_stmt_bind_param($stmt, "ssi", $meno, $priezvisko, $id);
+    mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-
+         */
+    }
 }
 ?>
 </body>

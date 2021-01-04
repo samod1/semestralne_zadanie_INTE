@@ -42,13 +42,15 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 </header>
 <div>
     <ul>
-        <li class="selected"><a href="index.php" class="active"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
         <li><a href="vloz.php">VKLADANIE</a></li>
-        <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-        <li><a href="edituj.php">EDITUJ</a></li>
-        <li><a href="contact.php">KONTAKT</a></li>
-        <!-- <li><a href="povedali.php">POVEDALI O PROJEKTE</a></li> -->
-        <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="popis.php">INE PROJEKTY</a></li>
+        <li><a class="active" href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+
+
     </ul>
 </div>
 <!-- Reklama na uvod -->

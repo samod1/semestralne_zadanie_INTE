@@ -25,8 +25,10 @@
 </header>
 <ul>
     <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+    <li><a href="popis.php">POPIS PROJETKU</a></li>
     <li><a href="vloz.php">VKLADANIE</a></li>
-    <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
+    <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+    <li><a href="popis.php">INE PROJEKTY</a></li>
     <li><a class="active" href="contact.php">KONTAKT</a></li>
     <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
 

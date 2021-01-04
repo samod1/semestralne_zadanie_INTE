@@ -42,13 +42,15 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 </header>
 <div>
     <ul>
-        <li class="selected"><a href="index.php" class="active"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
         <li><a href="vloz.php">VKLADANIE</a></li>
-        <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-        <li><a href="edituj.php">EDITUJ</a></li>
-        <li><a href="contact.php">KONTAKT</a></li>
-        <!-- <li><a href="povedali.php">POVEDALI O PROJEKTE</a></li> -->
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="popis.php">INE PROJEKTY</a></li>
+        <li><a class="active" href="contact.php">KONTAKT</a></li>
         <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
+
+
     </ul>
 </div>
 <!-- Reklama na uvod -->
@@ -63,35 +65,71 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
     <h2>Objednaj si obed</h2>
 
     <?php
-    $conn = "";
-    include_once "config.php";
-    $query = "SELECT idObed, nazov FROM Obed ORDER BY idObed ASC";
-    $result = mysqli_query($conn, $query);
+    if ($_GET["objednaj"] == "ano" && $_GET["id"] != "") {
+        $conn = "";
+        include "config.php";
+        $query = "SELECT id,meno,priezvisko from Student where id=" . $_GET["id"];
+        $result = mysqli_query($conn, $query);
 
-    if (!$result) {
-        echo "ERR";
-        exit;
-    }
-    ?>
-    <form action="citaj.php" method="post" autocomplete="off">
-        <?php
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
-            <input type="radio" value="<?php $row["nazov"]; ?>" name="obed">
-            <label><?php echo $row["nazov"]; ?></label><br>
+
+            <h3>Obed kupuje: <?php echo $row["id"], " ", $row["meno"], " ", $row["priezvisko"];
+        } ?></h3>
+
+        <form action="objednaj.php" method="GET" autocomplete="off">
+            <label for="id">ID:<?php echo $_GET["id"]; ?></label>
+            <input name="id" value="<?php echo $row["id"]; ?>"><br>
 
             <?php
+            $query_obed = "SELECT idObed, nazov FROM Obed ORDER BY idObed ASC";
+            $result = mysqli_query($conn, $query_obed);
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+
+                <label for="obed"><?php echo $row["idObed"], " ", $row["nazov"]; ?></label>
+                <br>
+                <?php
+            }
+            //TODO Update
+            // zajtra how to update predprirava by bola
+            /* moje otazky
+                Update
+            */
+            ?>
+            <input type="text" name="obed">
+            <input type="submit" value="uloz">
+            <input type="hidden" name="objednaj" value="ano">
+        </form>
+
+
+        <?php
+
+
+        if ($_GET["objednaj"] == "ano") {
+            $id = $_GET["id"];
+            $obed = $_GET["obed"];
+
+            $query_upobed = "UPDATE Student SET idObed= ? WHERE id= ?";
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt, $query_upobed);
+            mysqli_stmt_bind_param($stmt, "ii", $obed, $id);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+
+
+            /*
+                        $stmt = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($stmt, $query);
+                        mysqli_stmt_bind_param($stmt, "i", $id);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_close($stmt);
+            */
         }
+    }
+    mysqli_close($conn);
+    ?>
 
-        //TODO Update
-        // zajtra how to update predprirava by bola
-        /* moje otazky
-            Update
-
-        */
-        ?>
-        <input type="submit" value="uloz">
-    </form>
     <footer>
 
         <div class="footer">
