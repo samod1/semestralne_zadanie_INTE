@@ -27,7 +27,6 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
     <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
@@ -46,13 +45,13 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 </header>
 <div>
     <ul>
-        <li><a class="active" href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-        <li><a class="nav" href="popis.php">POPIS PROJETKU</a></li>
-        <li><a class="nav" href="vloz.php">VKLADANIE</a></li>
-        <li><a class="nav" href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
-        <li><a class="nav" href="popis.php">INE PROJEKTY</a></li>
-        <li><a class="nav" href="contact.php">KONTAKT</a></li>
-        <li><a class="nav" href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="vloz.php">VKLADANIE</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="popis.php">INE PROJEKTY</a></li>
+        <li><a class="active" href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
 
 
     </ul>
@@ -62,22 +61,28 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
     <h4 style="text-align:center">Webstranka je pohanana</h4>
     <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
 </div>
-<div>
-    <h1 style="font-size:10vw; text-align:center;">Vitajte!</h1>
-    <div class="center">
-        <button class="reg" onclick="window.location.href='prihlas_sa.php'">Prihlas sa</button>
-        <p>&nbsp;</p>
-        <button class="reg" onclick="window.location.href='registracia.php'">Registruj sa</button>
+
+<h4>
+    O projekte
+</h4>
+
+<p>
+
+    Dobrý deň,
+    vitajte na mojom semestrálnom projekte z predmetu Internetové technológie. Našou úlohou je spraviť webovú stránku,
+    ktorá bude prepojená na SQL databázu. V php využitím SQL príkazov budeme robiť DELETE, UPDATE, INSERT v databázových
+    tabuľkách.</p>
+<h5>O mojej stránke</h5>
+<p>Stránka slúži na objednávanie obedov pre študentov školy. Samostatná stránka je pre <a
+            href="http://kuchyna.4ideaspace.studenthosting.sk/">kuchňu</a>, kde si môžu nájsť zamestnaci kuchyne nájsť
+    koľko ľudí si objednalo daný obed. Na tejto časti webovej stránky sa zatiaľ aktívne pracuje. </p>
+
+
+<footer>
+
+    <div class="footer">
+        <p class="footer"><span>&copy;Samuel Domin 2020</span></p>
     </div>
-    <p>Toto je moje semestralne zadania</p>
-</div>
-<div id="txt"></div>
-
-    <footer>
-
-        <div class="footer">
-            <p class="footer"><span>&copy;Samuel Domin 2020</span></p>
-        </div>
-    </footer>
+</footer>
 </body>
 </html>

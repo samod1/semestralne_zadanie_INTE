@@ -43,7 +43,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/");
     <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
     <li><a href="contact.php">KONTAKT</a></li>
     <!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
-    <li><a href="https://github.com/samod1/semestralne_zadanie_INT3E.git">ZDROJOVE KODY</a></li>
+    <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
 
 
 </ul>
@@ -74,30 +74,35 @@ include "config.php";
 <div ng-app="myApp" ng-controller="myCtrl">
 
     <form action="vloz.php" method="post" autocomplete="on">
-        <label for="meno">Meno:</label> <input id="meno" ng-model="firstname" type="text" name="meno" required autofocus
-                                               placeholder="Samuel"><br>
-        <label for="priezvisko">Priezvisko:</label> <input id="priezvisko" ng-model="lastname" type="text"
-                                                           name="priezvisko" required autofocus placeholder="Domin"><br><br>
-        <label for="fakulta">Zvol si fakultu</label>
+        <fieldset>
+            <legend>Osobne udaje</legend>
+            <label for="meno">Meno:</label> <input id="meno" ng-model="firstname" type="text" name="meno" required
+                                                   autofocus
+                                                   placeholder="Samuel"><br>
+            <label for="priezvisko">Priezvisko:</label> <input id="priezvisko" ng-model="lastname" type="text"
+                                                               name="priezvisko" required autofocus placeholder="Domin"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Skolske udaje</legend>
+            <label for="fakulta">Zvol si fakultu</label>
 
-        <select id="fakulta" ng-model="faculty" name="fakulta">
-            <option label="MTF">Materialovo technologicka fakulta</option>
-            <option label="FCHPT">Fakulta chcemicko potravinarskej technologie</option>
-            <option label="FIIT">Fakulta informatiky a informacnych technologii</option>
-            <option label="FEI">Fakulta elektrotechniky</option>
-            <option label="SjF">Strojnicka fakulta</option>
-            <option label="SvF">Stavebna fakulta</option>
-        </select><br>
+            <select name="fakulta">
+                <option label="MTF">Materialovo technologicka fakulta</option>
+                <option label="FCHPT">Fakulta chcemicko potravinarskej technologie</option>
+                <option label="FIIT">Fakulta informatiky a informacnych technologii</option>
+                <option label="FEI">Fakulta elektrotechniky</option>
+                <option label="SjF">Strojnicka fakulta</option>
+                <option label="SvF">Stavebna fakulta</option>
+            </select><br>
+        </fieldset>
         <input type="submit" value="Vlozit"><br>
         <input type="hidden" name="vlozit" value="ano">
 
     </form>
-    <!-- <p><strong>Vkladas udaje:</strong> {{firstname}} {{lastname}} {{faculty}}<p> -->
-    <!--<p><strong>INSERT INTO student (id,meno,priezvisko,fakulta)
-            VALUES </strong>({{firstname}},{{lastname}},{{faculty}});</p>-->
 </div>
 
 <?php
+
 //vkladanie udajov do DB
 if ($_POST["vlozit"] == "ano") {
     $meno = $_POST["meno"];

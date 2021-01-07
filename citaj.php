@@ -143,5 +143,7 @@ if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $
 </html>
 
 <?php
+
+
 mysqli_close($conn);
 ?>

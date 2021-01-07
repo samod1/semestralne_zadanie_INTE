@@ -39,12 +39,14 @@
     <h4 style="text-align:center">Webstranka je pohanana</h4>
     <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
 </div>
-    <h2>Kontakt</h2>
-        <p><i class="fa fa-github fa-fw"></i><a href="https://github.com/samod1">Samod 1</a></p>
-        <p><i class="fa fa-linkedin fa-fw"></i></span><a href="https://www.linkedin.com/in/samuel-domin-b4b84b195/">Samuel Domin</a></p>
-        <p><i class="fa fa-envelope fa-fw"></i><a href="mailto:xdomins@stuba.sk">xdomins@stuba.sk</a></p>
-        <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.3361506222113!2d17.133355315954493!3d48.161602257465816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8eca3be8d21b%3A0xc19273faca29ed24!2sDominanz%20s.%20r.%20o.!5e0!3m2!1ssk!2ssk!4v1606756613357!5m2!1ssk!2ssk" width="100%" height="110%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
+<h2>Kontakt</h2>
+<p><i class="fa fa-github fa-fw"></i><a href="https://github.com/samod1">Samod 1</a></p>
+<p><i class="fa fa-linkedin fa-fw"></i></span><a href="https://www.linkedin.com/in/samuel-domin-b4b84b195/">Samuel
+        Domin</a></p>
+<p><i class="fa fa-envelope fa-fw"></i><a href="mailto:xdomins@stuba.sk">xdomins@stuba.sk</a></p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.3381417020664!2d17.133275715528832!3d48.16156387922541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8eca3be8d21b%3A0xc19273faca29ed24!2sDominanz%20s.%20r.%20o.!5e0!3m2!1ssk!2ssk!4v1609924176865!5m2!1ssk!2ssk"
+        width="1367" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
 <!--
 <form action="contact.php">
     <label for="fname">Krstne meno</label>

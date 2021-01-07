@@ -28,9 +28,9 @@ h2 {
 
 a
 {
-    text-decoration:none;
-    color: #006400;
-    style:strong;
+    text-decoration: none;
+    color: white;
+    style: strong;
 }
 
 a:hover {
@@ -38,9 +38,8 @@ a:hover {
     color: #0083e8;
 }
 
-a:visited
-{
-    color: #006400;
+a:visited {
+    color: #ffffff;
 }
 
 b, strong {
@@ -98,6 +97,7 @@ li a {
 li a:hover {
     color:white;
     background-color: #4CAF50;
+
 }
 
 
@@ -276,4 +276,24 @@ a#objednajObed:hover {
 
 a#objednajObed:visited {
     color: black;
+}
+
+a.nav {
+    color: white;
+}
+
+a.nav:visited {
+    color: white;
+}
+
+a.nav:hover {
+    color: white;
+}
+
+select {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1
 }

@@ -1,50 +1,131 @@
-<!DOCTYPE HTML>
-<html lang="sk-SK">
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("location: index.php");
+    exit;
+}
+
+// Include config file
+$conn = "";
+require_once "config.php";
+
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+
+// Processing form data when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Check if username is empty
+    if (empty(trim($_POST["username"]))) {
+        $username_err = "Please enter username.";
+    } else {
+        $username = trim($_POST["username"]);
+    }
+
+    // Check if password is empty
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter your password.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+
+    // Validate credentials
+    if (empty($username_err) && empty($password_err)) {
+        // Prepare a select statement
+        $sql = "SELECT idUser, username, password FROM USER WHERE username = ?";
+
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+            // Set parameters
+            $param_username = $username;
+
+            // Attempt to execute the prepared statement
+            if (mysqli_stmt_execute($stmt)) {
+                // Store result
+                mysqli_stmt_store_result($stmt);
+
+                // Check if username exists, if yes then verify password
+                if (mysqli_stmt_num_rows($stmt) == 1) {
+                    // Bind result variables
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    if (mysqli_stmt_fetch($stmt)) {
+                        if (password_verify($password, $hashed_password)) {
+                            // Password is correct, so start a new session
+                            session_start();
+
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+
+                            // Redirect user to welcome page
+                            header("location: index.php");
+                        } else {
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else {
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+
+    // Close connection
+    mysqli_close($conn);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css"
     <meta charset="UTF-8">
-    <title>Registracia</title>
-    <meta name="author" content="Samuel Domin"
-    <meta name="keyword" content="HTML, CSS, JavaScript, PHP">
-    <meta name="description" content="Semestralny projekt INTE">
-    <meta http-equiv="refresh" content="60">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        body {
+            font: 14px sans-serif;
+        }
 
-    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-    <link rel="manifest" href="icon/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
+        .wrapper {
+            width: 350px;
+            padding: 20px;
+        }
+    </style>
 </head>
-
-<body onload="startTime()">
-<script src="js/JS.js"></script>
-
-<header>
-    <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
-    <h2 class="uvod">Internetove technologie</h2>
-</header>
-
-<div>
-    <ul>
-        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-        <li><a href="vloz.php">VKLADANIE</a></li>
-        <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-        <li><a href="contact.php">KONTAKT</a></li>
-        <!-- <li><a href="povedali.php">POVEDALI O PROJEKTE</a></li> -->
-        <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
-    </ul>
+<body>
+<div class="wrapper">
+    <h2>Login</h2>
+    <p>Please fill in your credentials to login.</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+            <span class="help-block"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="help-block"><?php echo $password_err; ?></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Login">
+        </div>
+        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+    </form>
 </div>
-<h2 style="text-align: center">Prihlasenie</h2>
-<!-- Reklama na uvod -->
-<div>
-    <h4 style="text-align:center">Webstranka je pohanana</h4>
-    <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
-</div>
-
-<img src="images/Under-Construction-Sign.png" alt="prerabka">
 </body>
 </html>

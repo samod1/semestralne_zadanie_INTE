@@ -71,20 +71,22 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
         $query = "SELECT id,meno,priezvisko from Student where id=" . $_GET["id"];
         $result = mysqli_query($conn, $query);
 
+
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
 
             <h3>Obed kupuje: <?php echo $row["id"], " ", $row["meno"], " ", $row["priezvisko"];
-        } ?></h3>
+                ?></h3>
 
-        <form action="objednaj.php" method="GET" autocomplete="off">
-            <label for="id">ID:<?php echo $_GET["id"]; ?></label>
-            <input name="id" value="<?php echo $row["id"]; ?>"><br>
+            <form action="objednaj.php" method="GET" autocomplete="off">
 
-            <?php
-            $query_obed = "SELECT idObed, nazov FROM Obed ORDER BY idObed ASC";
-            $result = mysqli_query($conn, $query_obed);
-            while ($row = mysqli_fetch_assoc($result)) {
+                <label for="id">ID: ?>
+                    <input name="id"><br></label>
+
+                <?php
+                $query_obed = "SELECT idObed, nazov FROM Obed ORDER BY idObed ASC";
+                $result = mysqli_query($conn, $query_obed);
+                while ($row = mysqli_fetch_assoc($result)) {
                 ?>
 
                 <label for="obed"><?php echo $row["idObed"], " ", $row["nazov"]; ?></label>
@@ -96,35 +98,25 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
             /* moje otazky
                 Update
             */
-            ?>
-            <input type="text" name="obed">
-            <input type="submit" value="uloz">
-            <input type="hidden" name="objednaj" value="ano">
-        </form>
+                ?>
+                <input type="text" name="obed">
+                <input type="submit" value="Objednaj obed">
+                <input type="hidden" name="objednaj" value="ano">
+            </form>
 
 
-        <?php
+            <?php
+            if ($_GET["objednaj"] == "ano") {
+                $id = $_GET["id"];
+                $obed = $_GET["obed"];
 
-
-        if ($_GET["objednaj"] == "ano") {
-            $id = $_GET["id"];
-            $obed = $_GET["obed"];
-
-            $query_upobed = "UPDATE Student SET idObed= ? WHERE id= ?";
-            $stmt = mysqli_stmt_init($conn);
-            mysqli_stmt_prepare($stmt, $query_upobed);
-            mysqli_stmt_bind_param($stmt, "ii", $obed, $id);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
-
-
-            /*
-                        $stmt = mysqli_stmt_init($conn);
-                        mysqli_stmt_prepare($stmt, $query);
-                        mysqli_stmt_bind_param($stmt, "i", $id);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_close($stmt);
-            */
+                $query_upobed = "UPDATE Student SET idObed= ? WHERE id= ?";
+                $stmt = mysqli_stmt_init($conn);
+                mysqli_stmt_prepare($stmt, $query_upobed);
+                mysqli_stmt_bind_param($stmt, "ii", $obed, $id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+            }
         }
     }
     mysqli_close($conn);
