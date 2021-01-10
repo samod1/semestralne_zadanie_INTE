@@ -24,17 +24,17 @@
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
 </header>
-<ul>
-    <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-    <li><a href="popis.php">POPIS PROJETKU</a></li>
-    <li><a href="vloz.php">VKLADANIE</a></li>
-    <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
-    <li><a href="popis.php">INE PROJEKTY</a></li>
-    <li><a class="active" href="contact.php">KONTAKT</a></li>
-    <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
-
-
-</ul>
+<div>
+    <ul>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="vloz.php">VKLADANIE</a></li>
+        <li class="active"><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="ine.php">INE PROJEKTY</a></li>
+        <li><a href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+    </ul>
+</div>
 
 <!-- Reklama na uvod -->
 <div id="reklama">
@@ -63,6 +63,7 @@ if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    console . log("3");
 }
 
 
@@ -91,32 +92,7 @@ if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $
     $id = $_POST["id"];
     $priezvisko = $_POST["priezvisko"];
 
-    /*
-    $query = "UPDATE ucitel SET meno='$meno' WHERE id=$id";  //idem updatovat konkretny zaznam
-    echo "Vykonavany SQL prikaz je:".$query."<br><br>";
-    $result = mysqli_query($link, $query); // mysqli_query - vykona prikaz
-    */
 
-    //hladanie
-    /*
-        if ($_GET["hladaj"]=="ano")
-        {
-            $priezvisko=$_GET["priezvisko2"];
-            $query="SELECT id, meno,priezvisko,fakulta FROM Student WHERE priezvisko=".$priezvisko. "ORDER BY id ASC ";
-            $result=mysqli_query($query,$conn);
-            if (!$result)
-            {
-                echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
-                exit;
-            }
-
-            while ($row = mysqli_fetch_assoc($result))
-            {
-                echo "Hladana osoba<br>";
-                echo $row["meno"]," ",$row["priezvisko"]," ",$row["fakulta"];
-            }
-        }
-        */
     if ($_GET["ulozit"] == "ano") {
         $id = $_GET["id"];
         $obed = $_GET["obed"];
@@ -129,13 +105,6 @@ if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $
         mysqli_stmt_close($stmt);
 
 
-        /*
-    $stmt = mysqli_stmt_init($conn);
-    mysqli_stmt_prepare($stmt, $query);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-         */
     }
 }
 ?>

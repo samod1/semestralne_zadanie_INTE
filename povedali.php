@@ -21,28 +21,29 @@
 </head>
 
 <body>
-    <header>
-        <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
-        <h2 class="uvod">Internetove technologie</h2>
-    </header>
-    <div>
-        <ul>
-            <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-            <li><a href="vloz.php">VKLADANIE</a></li>
-            <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-            <li><a href="contact.php">KONTAKT</a></li>
-            <li><a class="active" href="povedali.php">POVEDALI O PROJEKTE</a></li>
-            <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
-        </ul>
-    </div>
-    <!-- Reklama na uvod -->
-    <div>
-        <h4 style="text-align:center">Webstranka je pohanana</h4>
-        <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
-    </div>
+<header>
+    <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
+    <h2 class="uvod">Internetove technologie</h2>
+</header>
+<div>
+    <ul>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="vloz.php">VKLADANIE</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="ine.php">INE PROJEKTY</a></li>
+        <li><a href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+    </ul>
+</div>
+<!-- Reklama na uvod -->
+<div>
+    <h4 style="text-align:center">Webstranka je pohanana</h4>
+    <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
+</div>
 
-    <div class="content" id="content">
-        <div class="reviews" id="reviews">
+<div class="content" id="content">
+    <div class="reviews" id="reviews">
         </div>
 
     </div>

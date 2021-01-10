@@ -18,7 +18,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 <head>
     <link rel="stylesheet" href="css/style.css"
     <meta charset="UTF-8">
-    <title>Popis projektu</title>
+    <title>Vitajte</title>
     <meta name="author" content="Samuel Domin"
     <meta name="keyword" content="HTML, CSS, JavaScript, PHP">
     <meta name="description" content="Semestralny projekt INTE">
@@ -39,6 +39,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 
 <body>
 <script src="js/JS.js"></script>
+
 <header>
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
@@ -46,10 +47,10 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 <div>
     <ul>
         <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-        <li><a class="active" href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
         <li><a href="vloz.php">VKLADANIE</a></li>
         <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
-        <li><a href="ine.php">INE PROJEKTY</a></li>
+        <li class="active"><a href="ine.php">INE PROJEKTY</a></li>
         <li><a href="contact.php">KONTAKT</a></li>
         <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
     </ul>
@@ -59,27 +60,22 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
     <h4 style="text-align:center">Webstranka je pohanana</h4>
     <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
 </div>
-
-<h4>
-    O projekte
-</h4>
-
-<p>
-
-    Dobrý deň,
-    vitajte na mojom semestrálnom projekte z predmetu Internetové technológie. Našou úlohou je spraviť webovú stránku,
-    ktorá bude prepojená na SQL databázu. V php využitím SQL príkazov budeme robiť DELETE, UPDATE, INSERT v databázových
-    tabuľkách.</p>
-<h5>O mojej stránke</h5>
-<p>Stránka slúži na objednávanie obedov pre študentov školy. Samostatná stránka je pre <a
-            href="http://kuchyna.4ideaspace.studenthosting.sk/">kuchňu</a>, kde si môžu nájsť zamestnaci kuchyne nájsť
-    koľko ľudí si objednalo daný obed. Na tejto časti webovej stránky sa zatiaľ aktívne pracuje. </p>
-
-
+<div>
+    <h3>Projekty na, ktorych som pracoval</h3>
+    <h4>4 idea Space</h4>
+    <img style="width: 80%" src="images/4is.png" alt="4 idea space"
+    <h5>Popis projektu</h5>
+    <a href="https://www.4idea.space">Link na stranku</a>
+    <p> Komunitny online priestor. Grantovy projekt spolocnosti <a href="https://www.ibm.com/sk-en">IBM</a>Projekt je
+        smerovany najma pre studentov MTF STU. V sppolupraci s </p>
+    <h3>Projekty na ktorych aktualne pracujem</h3>
+    <h4>Angualar Eshop</h4>
+    <p>V sucasnej dobe pracujem na Eshope vo frameworku Angular. Eshop bude mat vsetky potrebne funkcionality ako pre
+        zakaznika, tak aj pre predajcu. Zlavove kupony,atd.</p>
+</div>
 <footer>
-
     <div class="footer">
-        <p class="footer"><span>&copy;Samuel Domin 2020</span></p>
+        <p class="footer"><span>&copy;Samuel Domin 2020 - <?php echo date("Y"); ?></span></p>
     </div>
 </footer>
 </body>

@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="926d972a-45fd-4e42-911b-e6c99fd969b9" name="Default Changelist" comment="Verzia z 4.1.2021&#10;&#10;changelog&#10;&#10;uprava menu, dokocit potrebne veci na odovzdanie projektu. dopisat popis projektu">
-      <change afterPath="$PROJECT_DIR$/popis.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spracovanie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitaj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e89343c8-18eb-4a45-8d8c-4c3a13e1ec9f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e89343c8-18eb-4a45-8d8c-4c3a13e1ec9f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/logSign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/4is.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ine.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/menu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prihlas_saTemp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registraciatemp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/citaj.php" beforeDir="false" afterPath="$PROJECT_DIR$/citaj.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edituj.php" beforeDir="false" afterPath="$PROJECT_DIR$/edituj.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/JS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigacia.php" beforeDir="false" afterPath="$PROJECT_DIR$/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objednaj.php" beforeDir="false" afterPath="$PROJECT_DIR$/objednaj.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popis.php" beforeDir="false" afterPath="$PROJECT_DIR$/popis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/povedali.php" beforeDir="false" afterPath="$PROJECT_DIR$/povedali.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prihlas_sa.php" beforeDir="false" afterPath="$PROJECT_DIR$/prihlas_sa.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registracia.php" beforeDir="false" afterPath="$PROJECT_DIR$/registracia.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vloz.php" beforeDir="false" afterPath="$PROJECT_DIR$/vloz.php" afterDir="false" />
@@ -38,8 +45,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -72,6 +79,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -154,7 +162,18 @@
       <workItem from="1609948584461" duration="7223000" />
       <workItem from="1609963546597" duration="5319000" />
       <workItem from="1610025759203" duration="4388000" />
-      <workItem from="1610044237621" duration="6000" />
+      <workItem from="1610044237621" duration="150000" />
+      <workItem from="1610093771567" duration="994000" />
+      <workItem from="1610099364625" duration="12811000" />
+      <workItem from="1610189486980" duration="480000" />
+      <workItem from="1610190670109" duration="4000" />
+      <workItem from="1610191205420" duration="309000" />
+      <workItem from="1610192219881" duration="3664000" />
+      <workItem from="1610202597621" duration="759000" />
+      <workItem from="1610203709167" duration="436000" />
+      <workItem from="1610205222656" duration="344000" />
+      <workItem from="1610209240135" duration="5689000" />
+      <workItem from="1610227569611" duration="5040000" />
     </task>
     <task id="LOCAL-00001" summary="edituj">
       <created>1607980173587</created>
@@ -184,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609778291838</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Verzia 7.1.2021&#10;&#10;changelog&#10;edit formular skoro hotovy, menu skoro hotove, dokoncit css">
+      <created>1610044332458</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610044332458</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,10 +229,12 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="edituj" />
     <MESSAGE value="Verzia z 16.12.2020" />
     <MESSAGE value="Verzia z 4.1.2021&#10;&#10;changelog&#10;&#10;uprava menu, dokocit potrebne veci na odovzdanie projektu. dopisat popis projektu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Verzia z 4.1.2021&#10;&#10;changelog&#10;&#10;uprava menu, dokocit potrebne veci na odovzdanie projektu. dopisat popis projektu" />
+    <MESSAGE value="Verzia 7.1.2021&#10;&#10;changelog&#10;edit formular skoro hotovy, menu skoro hotove, dokoncit css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verzia 7.1.2021&#10;&#10;changelog&#10;edit formular skoro hotovy, menu skoro hotove, dokoncit css" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

@@ -2,7 +2,7 @@
 //definicia cookie
 $session = session_start();
 $cookie_name = "user";
-$cookie_value = "Pouzivas moj projekt";
+$cookie_value = "JohnDoe";
 
 setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 
@@ -18,7 +18,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 <head>
     <link rel="stylesheet" href="css/style.css"
     <meta charset="UTF-8">
-    <title>Popis projektu</title>
+    <title>Vitajte</title>
     <meta name="author" content="Samuel Domin"
     <meta name="keyword" content="HTML, CSS, JavaScript, PHP">
     <meta name="description" content="Semestralny projekt INTE">
@@ -39,47 +39,43 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 
 <body>
 <script src="js/JS.js"></script>
+
 <header>
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
 </header>
-<div>
+<div id="navigacia">
     <ul>
-        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-        <li><a class="active" href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="index2.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
         <li><a href="vloz.php">VKLADANIE</a></li>
         <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
-        <li><a href="ine.php">INE PROJEKTY</a></li>
-        <li><a href="contact.php">KONTAKT</a></li>
-        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+        <li><a href="popis.php">INE PROJEKTY</a></li>
+        <li><a class="active" href="contact.php">KONTAKT</a></li>
+        <li><a href="https://www.google.com">ZDROJOVE KODY</a></li>
+
+
     </ul>
 </div>
 <!-- Reklama na uvod -->
-<div>
-    <h4 style="text-align:center">Webstranka je pohanana</h4>
+<div id="reklama">
     <a href="https://wy.sk/?dealer=68733"><img src="images/banner_728x90.png" alt="banner"></a>
 </div>
-
-<h4>
-    O projekte
-</h4>
-
-<p>
-
-    Dobrý deň,
-    vitajte na mojom semestrálnom projekte z predmetu Internetové technológie. Našou úlohou je spraviť webovú stránku,
-    ktorá bude prepojená na SQL databázu. V php využitím SQL príkazov budeme robiť DELETE, UPDATE, INSERT v databázových
-    tabuľkách.</p>
-<h5>O mojej stránke</h5>
-<p>Stránka slúži na objednávanie obedov pre študentov školy. Samostatná stránka je pre <a
-            href="http://kuchyna.4ideaspace.studenthosting.sk/">kuchňu</a>, kde si môžu nájsť zamestnaci kuchyne nájsť
-    koľko ľudí si objednalo daný obed. Na tejto časti webovej stránky sa zatiaľ aktívne pracuje. </p>
+<div>
+    <h1 style="font-size:10vw; text-align:center;">Vitajte!</h1>
+    <div class="center">
+        <button class="reg" onclick="window.location.href='prihlas_sa.php'">Prihlas sa</button>
+        <p>&nbsp;</p>
+        <button class="reg" onclick="window.location.href='registracia.php'">Registruj sa</button>
+    </div>
+    <div class="clock"></div>
+</div>
 
 
 <footer>
 
     <div class="footer">
-        <p class="footer"><span>&copy;Samuel Domin 2020</span></p>
+        <p class="footer"><span>&copy;Samuel Domin 2020 - <?php echo date("Y"); ?></span></p>
     </div>
 </footer>
 </body>

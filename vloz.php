@@ -37,16 +37,17 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/");
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
 </header>
-<ul>
-    <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-    <li><a class="active" href="vloz.php">VKLADANIE</a></li>
-    <li><a href="citaj.php">CITANIE/MAZANIE</a></li>
-    <li><a href="contact.php">KONTAKT</a></li>
-    <!-- Po dokonceni vsetkeho doplnit zdrojove kody -->
-    <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
-
-
-</ul>
+<div>
+    <ul>
+        <li><a href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
+        <li class="active"><a href="vloz.php">VKLADANIE</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="ine.php">INE PROJEKTY</a></li>
+        <li><a href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
+    </ul>
+</div>
 <!-- Reklama na uvod -->
 <div>
     <h4 style="text-align:center">Webstranka je pohanana</h4>
@@ -119,8 +120,6 @@ if ($_POST["vlozit"] == "ano") {
 
 }
 
-
-echo "<br> vitaj:", $_POST["meno"], " ", $_POST["priezvisko"], " ", $_POST["fakulta"];
 mysqli_close($conn);
 ?>
 

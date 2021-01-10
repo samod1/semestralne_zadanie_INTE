@@ -65,18 +65,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: index.php");
+                            header("location: index2.php");
                         } else {
                             // Display an error message if password is not valid
-                            $password_err = "The password you entered was not valid.";
+                            $password_err = "Zadal si nespravne heslo.";
                         }
                     }
                 } else {
                     // Display an error message if username doesn't exist
-                    $username_err = "No account found with that username.";
+                    $username_err = "Uzivatelske meno, ktore si zadal neexistuje";
                 }
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Ups! Nieco sa pokazilo";
             }
 
             // Close statement
@@ -90,41 +90,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk-SK">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style type="text/css">
-        body {
-            font: 14px sans-serif;
-        }
-
-        .wrapper {
-            width: 350px;
-            padding: 20px;
-        }
-    </style>
+    <title>Prihlás sa</title>
+    <link rel="stylesheet" href="css/logSign.css" type="text/css">
 </head>
 <body>
+<header>
+    <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
+    <h2 class="uvod">Internetove technologie</h2>
+</header>
+
 <div class="wrapper">
-    <h2>Login</h2>
-    <p>Please fill in your credentials to login.</p>
+    <h2>Prihlás sa</h2>
+    <p>Zadaj svoje prihlasovacie údaje prosím</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Username</label>
+            <label>Užívateľské meno</label>
             <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
             <span class="help-block"><?php echo $username_err; ?></span>
         </div>
         <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control">
+            <label>Heslo</label>
+            <input style="width: 100%;padding: 12px 20px; margin: 8px 0; box-sizing: border-box;" type="password"
+                   name="password" class="form-control">
             <span class="help-block"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
-        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+        <p>Ešte nemáš účet <a href="registracia.php">Zaregistruj sa</a>.</p>
     </form>
 </div>
 </body>

@@ -40,6 +40,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 
 <body>
 <script src="js/JS.js"></script>
+
 <header>
     <a class="uvod" href="index.php"><h1 class="uvod">Semestralne zadanie</h1></a>
     <h2 class="uvod">Internetove technologie</h2>
@@ -47,14 +48,12 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 <div>
     <ul>
         <li><a class="active" href="index.php"><i class="fa fa-home fa-fw"></i></a></li>
-        <li><a class="nav" href="popis.php">POPIS PROJETKU</a></li>
-        <li><a class="nav" href="vloz.php">VKLADANIE</a></li>
-        <li><a class="nav" href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
-        <li><a class="nav" href="popis.php">INE PROJEKTY</a></li>
-        <li><a class="nav" href="contact.php">KONTAKT</a></li>
-        <li><a class="nav" href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
-
-
+        <li><a href="popis.php">POPIS PROJETKU</a></li>
+        <li><a href="vloz.php">VKLADANIE</a></li>
+        <li><a href="citaj.php">CITANIE/MAZANIE/UPRAVOVANIE</a></li>
+        <li><a href="ine.php">INE PROJEKTY</a></li>
+        <li><a href="contact.php">KONTAKT</a></li>
+        <li><a href="https://github.com/samod1/semestralne_zadanie_INTE.git">ZDROJOVE KODY</a></li>
     </ul>
 </div>
 <!-- Reklama na uvod -->
@@ -65,19 +64,19 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 <div>
     <h1 style="font-size:10vw; text-align:center;">Vitajte!</h1>
     <div class="center">
-        <button class="reg" onclick="window.location.href='prihlas_sa.php'">Prihlas sa</button>
+        <button class="reg" onclick="window.location.href='prihlas_saTemp.php'">Prihlas sa</button>
         <p>&nbsp;</p>
-        <button class="reg" onclick="window.location.href='registracia.php'">Registruj sa</button>
+        <button class="reg" onclick="window.location.href='registraciatemp.php'">Registruj sa</button>
     </div>
-    <p>Toto je moje semestralne zadania</p>
+    <div class="clock"></div>
 </div>
-<div id="txt"></div>
 
-    <footer>
 
-        <div class="footer">
-            <p class="footer"><span>&copy;Samuel Domin 2020</span></p>
-        </div>
-    </footer>
+<footer>
+
+    <div class="footer">
+        <p class="footer"><span>&copy;Samuel Domin 2020 - <?php echo date("Y"); ?></span></p>
+    </div>
+</footer>
 </body>
 </html>
