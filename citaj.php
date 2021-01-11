@@ -63,30 +63,12 @@ if ($_GET["zmazat"] == "ano" && $_GET["id"] != "") {
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    console . log("3");
 }
 
 
 //READING
-//$query = "SELECT Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
-$query = "SELECT Student.id ,Student.meno, Student.priezvisko,Obed.nazov FROM Student LEFT JOIN Obed ON Student.idObed=Obed.idObed ";  //uspodiadaj ASC od najmensieho po najvacsi
-$result = mysqli_query($conn, $query); // mysqli_query - vykona prikaz
-if (!$result) {
-    // ! $result zneguje false vyroby z neho true - ak sa db nepodarilo vykonat prikaz
-    echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL; // PHP_EOL je konstanta na koniec riadku
-    exit;   // exit - ukonci vykonavanie PHP programu
-}
+include "tabulka.php";
 
-while ($row = mysqli_fetch_assoc($result))  // pokial budu existovat riadky v DB tak sa bude opakovat akcia medzi zatvrokami
-{
-
-    echo "<b>Meno:</b> " . $row["meno"] . "&nbsp; <b>Priezvisko:</b> " . $row["priezvisko"] . " &nbsp; <b>Zvoleny obed: </b>" . $row["nazov"]; ?>
-    <a id="odstranit" href="citaj.php?id=<?php echo $row["id"]; ?>&zmazat=ano"><b>Zmazat</b></a>
-    <a id="edituj" href="edituj.php?id=<?php echo $row["id"]; ?>&edituj=ano"><b>Edituj</b></a>
-    <a id="objednajObed" href="objednaj.php?id=<?php echo $row["id"]; ?>&objednaj=ano"><b>Objednaj si obed</b></a><br>
-
-    <?php
-}
 if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $_POST["priezvisko"] != "") {
     $meno = $_POST["meno"];
     $id = $_POST["id"];
@@ -107,6 +89,8 @@ if ($_POST["ulozit"] == "ano" && $_POST["id"] != "" && $_POST["meno"] != "" && $
 
     }
 }
+
+
 ?>
 </body>
 </html>

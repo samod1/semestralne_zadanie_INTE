@@ -78,51 +78,38 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
 
             ?>
 
-            <h3>Obed kupuje: <?php echo $row["id"], " ", $row["meno"], " ", $row["priezvisko"];
-                ?></h3>
-
-            <form action="objednaj.php" method="GET" autocomplete="off">
-
-                <input type="hidden" name="id" value="<? echo $idp; ?>">
-
-                <?php
-                $query_obed = "SELECT idObed, nazov FROM Obed ORDER BY idObed ASC";
-                $result = mysqli_query($conn, $query_obed);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <input type="radio" name="obed" id="<? echo $row["idObed"]; ?>" value="<? echo $row["idObed"] ?>">
-                    <label for="<? echo $row["idObed"] ?>"><?php echo $row["nazov"]; ?></label>
-                    <br>
-                    <?php
-                }
-            //TODO Update
-            // zajtra how to update predprirava by bola
-            /* moje otazky
-                Update
-            */
-                ?>
-                <!--<input type="text" name="obed">-->
+            <form method="post">
+                <input type="date" name="datum">
                 <br>
-                <input type="submit" value="Objednaj obed">
-                <input type="reset">
-                <input type="hidden" name="objednaj" value="ano">
+                <br>
+                <input type="submit" value="vloz">
+                <br>
             </form>
 
+            <?
+            $datum = $_POST["datum"];
 
-            <?php
-            if ($_GET["objednaj"] == "ano") {
-                $id = $_GET["id"];
-                $obed = $_GET["obed"];
+            echo "<h3>Obed kupuje:" . " " . $row["meno"] . " " . $row["priezvisko"] . "</h3>";
 
-                $query_upobed = "UPDATE Student SET idObed= ? WHERE id= ?";
-                $stmt = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($stmt, $query_upobed);
-                mysqli_stmt_bind_param($stmt, "ii", $obed, $id);
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_close($stmt);
-            }
+
+            include "objednaj_form.php";
         }
     }
+    if ($_POST["objednaj"] == "ano") {
+        $id = $_POST["id"];
+        $obed = $_POST["obed"];
+
+        $query = "INSERT INTO Objednavky (idStud, idObe) VALUES (?,?);";
+        $stmt = mysqli_stmt_init($conn);
+        mysqli_stmt_prepare($stmt, $query);
+        mysqli_stmt_bind_param($stmt, "ii", $id, $obed);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_commit($conn);
+        header("Location: citaj.php");
+    }
+
+
     mysqli_close($conn);
     ?>
 

@@ -72,8 +72,8 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // 86400 = 1 day
     tabuľkách.</p>
 <h5>O mojej stránke</h5>
 <p>Stránka slúži na objednávanie obedov pre študentov školy. Samostatná stránka je pre <a
-            href="http://kuchyna.4ideaspace.studenthosting.sk/">kuchňu</a>, kde si môžu nájsť zamestnaci kuchyne nájsť
-    koľko ľudí si objednalo daný obed. Na tejto časti webovej stránky sa zatiaľ aktívne pracuje. </p>
+            href="http://kuchyna.4ideaspace.studenthosting.sk/">kuchyňu</a>, kde si môžu nájsť zamestnaci kuchyne nájsť
+    koľko ľudí si objednalo daný obed. Pridavat alergeny k jednotlivym obedom. Taktiez su aj </p>
 
 
 <footer>

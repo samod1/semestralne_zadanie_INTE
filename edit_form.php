@@ -1,4 +1,4 @@
-<form action="edituj.php" method="GET">
+<form action="edituj.php" method="POST">
     <fieldset>
         <legend>Osobne udaje</legend>
         <input type="hidden" name="id" value="<?php echo $idp; ?>">

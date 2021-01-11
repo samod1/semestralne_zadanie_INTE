@@ -4,29 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="926d972a-45fd-4e42-911b-e6c99fd969b9" name="Default Changelist" comment="Verzia z 4.1.2021&#10;&#10;changelog&#10;&#10;uprava menu, dokocit potrebne veci na odovzdanie projektu. dopisat popis projektu">
-      <change afterPath="$PROJECT_DIR$/css/logSign.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/4is.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menu.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prihlas_saTemp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registraciatemp.php" afterDir="false" />
+    <list default="true" id="926d972a-45fd-4e42-911b-e6c99fd969b9" name="Default Changelist" comment="Verzia z 10.1.2021&#10;&#10;Finalna verzia">
+      <change afterPath="$PROJECT_DIR$/objednaj_form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zobrazObedy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e89343c8-18eb-4a45-8d8c-4c3a13e1ec9f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e89343c8-18eb-4a45-8d8c-4c3a13e1ec9f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/citaj.php" beforeDir="false" afterPath="$PROJECT_DIR$/citaj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_form.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edituj.php" beforeDir="false" afterPath="$PROJECT_DIR$/edituj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/JS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigacia.php" beforeDir="false" afterPath="$PROJECT_DIR$/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objednaj.php" beforeDir="false" afterPath="$PROJECT_DIR$/objednaj.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popis.php" beforeDir="false" afterPath="$PROJECT_DIR$/popis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/povedali.php" beforeDir="false" afterPath="$PROJECT_DIR$/povedali.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prihlas_sa.php" beforeDir="false" afterPath="$PROJECT_DIR$/prihlas_sa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registracia.php" beforeDir="false" afterPath="$PROJECT_DIR$/registracia.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vloz.php" beforeDir="false" afterPath="$PROJECT_DIR$/vloz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sraps" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +162,11 @@
       <workItem from="1610205222656" duration="344000" />
       <workItem from="1610209240135" duration="5689000" />
       <workItem from="1610227569611" duration="5040000" />
+      <workItem from="1610277057923" duration="630000" />
+      <workItem from="1610286743070" duration="1035000" />
+      <workItem from="1610288948684" duration="2101000" />
+      <workItem from="1610291691539" duration="3169000" />
+      <workItem from="1610365894360" duration="7628000" />
     </task>
     <task id="LOCAL-00001" summary="edituj">
       <created>1607980173587</created>
@@ -210,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610044332458</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Verzia z 10.1.2021&#10;&#10;Finalna verzia">
+      <created>1610277099739</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610277099739</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +234,8 @@
     <MESSAGE value="Verzia z 16.12.2020" />
     <MESSAGE value="Verzia z 4.1.2021&#10;&#10;changelog&#10;&#10;uprava menu, dokocit potrebne veci na odovzdanie projektu. dopisat popis projektu" />
     <MESSAGE value="Verzia 7.1.2021&#10;&#10;changelog&#10;edit formular skoro hotovy, menu skoro hotove, dokoncit css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Verzia 7.1.2021&#10;&#10;changelog&#10;edit formular skoro hotovy, menu skoro hotove, dokoncit css" />
+    <MESSAGE value="Verzia z 10.1.2021&#10;&#10;Finalna verzia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verzia z 10.1.2021&#10;&#10;Finalna verzia" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

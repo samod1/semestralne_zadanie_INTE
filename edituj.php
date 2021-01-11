@@ -68,10 +68,10 @@ if ($_GET["id"] != "" && $_GET["edituj"] == "ano") {
 
 }
 
-if ($_GET["uprav"] == "ano") {
-    $id = $_GET["id"];
-    $meno = $_GET["meno"];
-    $priezvisko = $_GET["priezvisko"];
+if ($_POST["uprav"] == "ano") {
+    $id = $_POST["id"];
+    $meno = $_POST["meno"];
+    $priezvisko = $_POST["priezvisko"];
 
     echo "Aktualizovane info: " . $meno . " " . $priezvisko;
     $query = "UPDATE Student SET meno= ?, priezvisko= ? where id=?";
@@ -83,11 +83,18 @@ if ($_GET["uprav"] == "ano") {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_commit($conn);
+    header("Location: citaj.php");
+
 
 }
 
 mysqli_close($conn);
+/*TODO Tabulka objednavky
+*/
+
 
 ?>
 </body>
 </html>
+
+
