@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="926d972a-45fd-4e42-911b-e6c99fd969b9" name="Default Changelist" comment="Verzia z 10.1.2021&#10;&#10;Finalna verzia">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/citaj.php" beforeDir="false" afterPath="$PROJECT_DIR$/citaj.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vloz.php" beforeDir="false" afterPath="$PROJECT_DIR$/vloz.php" afterDir="false" />
-    </list>
+    <list default="true" id="926d972a-45fd-4e42-911b-e6c99fd969b9" name="Default Changelist" comment="Verzia z 10.1.2021&#10;&#10;Finalna verzia" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,6 +156,7 @@
       <workItem from="1610288948684" duration="2101000" />
       <workItem from="1610291691539" duration="3169000" />
       <workItem from="1610365894360" duration="11224000" />
+      <workItem from="1624279404466" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="edituj">
       <created>1607980173587</created>
