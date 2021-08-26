@@ -38,8 +38,94 @@ if ($pocetRiadkov == 0) {
         <?php
     }
 
-    mysqli_close($conn);
+
     ?>
 </table>
+
+<?php
+$query = "SELECT názov, kód FROM Krajny_OSN";
+$result = mysqli_query($conn, $query);
+$pocetRiadkov = mysqli_num_rows($result);
+if (!$result) {
+    echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
+    exit;
+}
+if ($pocetRiadkov == 0) {
+    echo "Nemam co zobrazit";
+}
+?>
+<br>
+<br>
+<label>Krajna</label>
+<select name="country" id="coutries">
+
+
+    <?php
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <option value="<?php echo $row["kód"] ?>"><?php echo $row["názov"] ?></option>
+
+    <?php } ?>
+</select>
+
+<?php
+$query = "SELECT názov, kód FROM Vysoke_skoly";
+$result = mysqli_query($conn, $query);
+$pocetRiadkov = mysqli_num_rows($result);
+if (!$result) {
+    echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
+    exit;
+}
+if ($pocetRiadkov == 0) {
+    echo "Nemam co zobrazit";
+}
+?>
+<br>
+<br>
+<label>Univerzita</label>
+<select name="university" id="university">
+
+
+    <?php
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <option value="<?php echo $row["kód"] ?>"><?php echo $row["názov"] ?></option>
+
+    <?php } ?>
+</select>
+
+<?php
+$query = "SELECT názov, kód FROM Fakulty";
+$result = mysqli_query($conn, $query);
+$pocetRiadkov = mysqli_num_rows($result);
+if (!$result) {
+    echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
+    exit;
+}
+if ($pocetRiadkov == 0) {
+    echo "Nemam co zobrazit";
+}
+?>
+<br>
+<br>
+<label>Fakulta</label>
+<select name="university" id="university">
+
+
+    <?php
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <option value="<?php echo $row["kód"] ?>"><?php echo $row["názov"] ?></option>
+
+        <?php
+    }
+    mysqli_close($conn);
+    ?>
+</select>
+
+
 </body>
 </html>
