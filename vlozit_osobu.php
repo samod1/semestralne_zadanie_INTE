@@ -140,6 +140,32 @@ include "config.php";
         }
         ?>
     </select>
+    <?php
+
+    $query = "SELECT názovKrajny, kód FROM Krajny_OSN ORDER BY kód ASC";
+    $result = mysqli_query($conn, $query);
+    $pocetRiadkov = mysqli_num_rows($result);
+    if (!$result) {
+        echo "Error: Neda sa vykonat prikaz SQL: " . $query . ".<br>" . PHP_EOL;
+        exit;
+    }
+    if ($pocetRiadkov == 0) {
+        echo "Nemam co zobrazit";
+    }
+    ?>
+
+    <label for="coutries">Krajna</label>
+    <select name="country" id="coutries">
+
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <option value="<?php echo $row["kód"] ?>"><?php echo $row["názov"] ?></option>
+
+        <?php } ?>
+    </select>
+
+
     <input type="submit" value="Vlozit"><br>
     <input type="hidden" name="vlozit" value="ano">
 </form>
@@ -154,20 +180,22 @@ if ($_POST["vlozit"] == "ano") {
     $titleBeforeName = $_POST["titleBeforeName"];
     $titleAfterName = $_POST["titleAfterName"];
     $faculty = $_POST["faculty"];
+    $country = $_POST["country"];
     $id = 0;
 
 
-    $query = "INSERT INTO tbl_student_new (id,meno,priezvisko,titulPredMenom,titulZaMenom,fakulta) VALUES (?,?,?,?,?,?)";
+    $query = "INSERT INTO tbl_student_new (id,meno,priezvisko,titulPredMenom,titulZaMenom,fakulta,krajina) VALUES (?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $query);
-    mysqli_stmt_bind_param($stmt, 'issiii', $id, $meno, $priezvisko, $titleBeforeName, $titleAfterName, $faculty);
+    mysqli_stmt_bind_param($stmt, 'issiiii', $id, $meno, $priezvisko, $titleBeforeName, $titleAfterName, $faculty, $country);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("Location:citaj.php");
+    header("Location:ciselnik.php");
 }
 
 mysqli_close($conn);
-?>
 
+echo "git commit "
+?>
 
 </html>
