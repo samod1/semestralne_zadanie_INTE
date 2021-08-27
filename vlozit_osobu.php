@@ -142,7 +142,7 @@ include "config.php";
     </select>
     <?php
 
-    $query = "SELECT názov, kód FROM Krajny_OSN ORDER BY kód ASC";
+    $query = "SELECT názovKrajny, kód FROM Krajny_OSN ORDER BY kód ASC";
     $result = mysqli_query($conn, $query);
     $pocetRiadkov = mysqli_num_rows($result);
     if (!$result) {
