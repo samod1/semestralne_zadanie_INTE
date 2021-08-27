@@ -194,7 +194,8 @@ if ($_POST["vlozit"] == "ano") {
 }
 
 mysqli_close($conn);
-?>
 
+echo "git commit "
+?>
 
 </html>
